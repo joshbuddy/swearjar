@@ -4,7 +4,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |s|
     s.name = "swearjar"
-    s.description = s.summary = "Put another nickel in the swearjar."
+    s.description = s.summary = "Put another nickel in the swearjar. Simple profanity detection with content analysis."
     s.email = "joshbuddy@gmail.com"
     s.homepage = "http://github.com/joshbuddy/swearjar"
     s.authors = "Joshua Hull"
