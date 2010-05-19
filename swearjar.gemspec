@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{swearjar}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Joshua Hull"]
-  s.date = %q{2010-01-13}
-  s.description = %q{Put another nickel in the swearjar.}
+  s.date = %q{2010-05-19}
+  s.description = %q{Put another nickel in the swearjar. Simple profanity detection with content analysis.}
   s.email = %q{joshbuddy@gmail.com}
   s.extra_rdoc_files = [
     "README.rdoc"
@@ -29,8 +29,8 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/joshbuddy/swearjar}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.5}
-  s.summary = %q{Put another nickel in the swearjar.}
+  s.rubygems_version = %q{1.3.6}
+  s.summary = %q{Put another nickel in the swearjar. Simple profanity detection with content analysis.}
   s.test_files = [
     "spec/spec_helper.rb",
     "spec/swearjar_spec.rb"
