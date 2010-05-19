@@ -32,7 +32,7 @@ class Swearjar
 
   def scan(string, &block)
     string.scan(/\b[a-zA-Z-]+\b/) do |word|
-      block.call(word, hash[word])
+      block.call(word, hash[word.downcase])
     end
     if match = tester.match_with_result(string)
       block.call(match.last, match.first)

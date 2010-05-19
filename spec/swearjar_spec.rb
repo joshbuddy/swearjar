@@ -6,6 +6,10 @@ describe Swearjar do
     Swearjar.default.profane?('fuck you jim henson').should be_true
   end
 
+  it "should detect dirty words regardless of case" do
+    Swearjar.default.profane?('FuCk you jim henson').should be_true
+  end
+
   it "should not detect non-dirty words" do
     Swearjar.default.profane?('i love you jim henson').should be_false
   end
