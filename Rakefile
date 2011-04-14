@@ -5,9 +5,10 @@ begin
   Jeweler::Tasks.new do |s|
     s.name = "swearjar"
     s.description = s.summary = "Put another nickel in the swearjar. Simple profanity detection with content analysis."
-    s.email = "joshbuddy@gmail.com"
-    s.homepage = "http://github.com/joshbuddy/swearjar"
-    s.authors = "Joshua Hull"
+    s.email = "geeks@polleverywhere.com"
+    s.homepage = "http://github.com/polleverywhere/swearjar"
+    s.authors = ["Joshua Hull", "Jeff Vyduna"]
+    s.date = %q{2011-04-13}
     s.files = FileList["[A-Z]*", "{lib,spec,config}/**/*"]
     s.add_dependency 'fuzzyhash', '>=0.0.11'
     s.add_dependency 'dirge', '>=0.0.3'
