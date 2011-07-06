@@ -1,6 +1,5 @@
 require 'yaml'
 require 'fuzzy_hash'
-require 'dirge'
 
 class Swearjar
   
@@ -9,7 +8,7 @@ class Swearjar
   end
   
   def self.from_language(language = 'en')
-    new(~File.join('..', 'config', "#{language}.yml"))
+    new(File.join(File.dirname(__FILE__), 'config', "#{language}.yml"))
   end
 
   attr_reader :tester, :hash
