@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    swearjar (0.0.3)
+    swearjar (0.0.4)
       fuzzyhash (~> 0.0.11)
 
 GEM
