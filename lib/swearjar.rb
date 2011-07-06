@@ -2,31 +2,31 @@ require 'yaml'
 require 'fuzzy_hash'
 
 class Swearjar
-  
+
   def self.default
     from_language
   end
-  
+
   def self.from_language(language = 'en')
     new(File.join(File.dirname(__FILE__), 'config', "#{language}.yml"))
   end
 
   attr_reader :tester, :hash
-  
+
   def initialize(file)
     data = YAML.load_file(file)
-    
+
     @tester = FuzzyHash.new
     @hash = {}
-    
+
     data['regex'].each do |pattern, type|
       @tester[Regexp.new(pattern)] = type
     end
-    
+
     data['simple'].each do |test, type|
       @hash[test] = type
     end
-    
+
   end
 
   def scan(string, &block)
