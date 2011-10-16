@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+task :default => :spec
+
 require 'spec'
 require 'spec/rake/spectask'
 task :spec => 'spec:all'
