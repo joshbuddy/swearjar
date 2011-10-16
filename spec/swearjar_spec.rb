@@ -20,15 +20,15 @@ describe Swearjar do
   end
 
   it "should give us a scorecard" do
-    Swearjar.default.scorecard('fuck you jim henson').should == {:sexual=>1}
+    Swearjar.default.scorecard('fuck you jim henson').should == {'sexual'=>1}
   end
 
   it "should detect multiword" do
-    Swearjar.default.scorecard('jim henson has a hard on').should == {:sexual=>1}
+    Swearjar.default.scorecard('jim henson has a hard on').should == {'sexual'=>1}
   end
 
   it "should detect multiword plurals" do
-    Swearjar.default.scorecard('jim henson has a hard ons').should == {:sexual=>1}
+    Swearjar.default.scorecard('jim henson has a hard ons').should == {'sexual'=>1}
   end
 
   it "should censor a string" do
