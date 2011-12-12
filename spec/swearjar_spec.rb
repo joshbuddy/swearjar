@@ -35,4 +35,10 @@ describe Swearjar do
     Swearjar.default.censor('jim henson has a massive hard on he is gonna use to fuck everybody').should == 'jim henson has a massive **** ** he is gonna use to **** everybody'
   end
 
+  it "should allow you to load a new yaml file" do
+    sj = Swearjar.new
+    sj.load_file(File.expand_path('../data/swear.yml', __FILE__))
+    sj.censor("Python is the best language!").should == "****** is the best language!"
+  end
+
 end

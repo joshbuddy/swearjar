@@ -13,20 +13,22 @@ class Swearjar
 
   attr_reader :tester, :hash
 
-  def initialize(file)
-    data = YAML.load_file(file)
-
+  def initialize(file = nil)
     @tester = FuzzyHash.new
     @hash = {}
+    load_file(file) if file
+  end
+
+  def load_file(file)
+    data = YAML.load_file(file)
 
     data['regex'].each do |pattern, type|
       @tester[Regexp.new(pattern)] = type
-    end
+    end if data['regex']
 
     data['simple'].each do |test, type|
       @hash[test] = type
-    end
-
+    end if data['simple']
   end
 
   def scan(string, &block)
