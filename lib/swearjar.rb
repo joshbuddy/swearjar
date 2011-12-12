@@ -32,6 +32,7 @@ class Swearjar
   end
 
   def scan(string, &block)
+    string = string.to_s
     string.scan(/\b[a-zA-Z-]+\b/) do |word|
       block.call(word, hash[word.downcase] || hash[word.downcase.gsub(/e?s$/,'')] )
     end
@@ -41,18 +42,20 @@ class Swearjar
   end
 
   def profane?(string)
+    string = string.to_s
     scan(string) {|word, test| return true if !test.nil?}
     return false
   end
 
   def scorecard(string)
+    string = string.to_s
     scorecard = {}
     scan(string) {|word, test| test.each { |type| scorecard.key?(type) ? scorecard[type] += 1 : scorecard[type] = 1} if test}
     scorecard
   end
 
   def censor(string)
-    censored_string = string.dup
+    censored_string = string.to_s.dup
     scan(string) {|word, test| censored_string.gsub!(word, block_given? ? yield(word) : word.gsub(/\S/, '*')) if test}
     censored_string
   end

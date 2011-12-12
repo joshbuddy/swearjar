@@ -35,6 +35,10 @@ describe Swearjar do
     Swearjar.default.censor('jim henson has a massive hard on he is gonna use to fuck everybody').should == 'jim henson has a massive **** ** he is gonna use to **** everybody'
   end
 
+  it "should not do much when given a non-string" do
+    Swearjar.default.profane?(nil).should be_false
+  end
+
   it "should allow you to load a new yaml file" do
     sj = Swearjar.new
     sj.load_file(File.expand_path('../data/swear.yml', __FILE__))
