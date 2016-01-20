@@ -21,17 +21,7 @@ Gem::Specification.new do |s|
 
   # dependencies
   s.add_runtime_dependency 'fuzzyhash',   '~> 0.0.11'
-  s.add_development_dependency 'rake',    '~> 0.8.7'
-  s.add_development_dependency 'rspec',   '~> 1.3.0'
-
-  if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
-    s.specification_version = 3
-
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-    else
-    end
-  else
-  end
+  s.add_development_dependency 'rake',    '~> 10.5'
+  s.add_development_dependency 'rspec',   '~> 3.4'
 end
 
