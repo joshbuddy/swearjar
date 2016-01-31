@@ -47,4 +47,12 @@ describe Swearjar do
     sj.load_file(File.expand_path('../data/swear.yml', __FILE__))
     expect(sj.censor("Python is the best language!")).to eq("****** is the best language!")
   end
+
+  it "detects multiple entries" do
+    expect(Swearjar.default.scorecard("cunts cunts cunts")).to eq({"insult" => 3, "sexual" => 3})
+  end
+
+  it "detects plurals of words ending in 'e'" do
+    expect(Swearjar.default.profane?("ejaculates")).to be_truthy
+  end
 end

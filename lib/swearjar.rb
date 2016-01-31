@@ -34,7 +34,7 @@ class Swearjar
   def scan(string, &block)
     string = string.to_s
     string.scan(/\b[a-zA-Z-]+\b/) do |word|
-      block.call(word, hash[word.downcase] || hash[word.downcase.gsub(/e?s$/,'')] )
+      block.call(word, hash[word.downcase] || hash[word.downcase.gsub(/s\z/,"")] || hash[word.downcase.gsub(/es\z/,"")] )
     end
     if match = tester.match_with_result(string)
       block.call(match.last, match.first)
