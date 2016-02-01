@@ -1,3 +1,4 @@
+---
 regex:
   'hard ons?\b': ["sexual"]
   'jerk off\b': ["sexual"]
@@ -411,3 +412,5 @@ simple:
   "whore": ["insult"]
   "whorebag": ["insult"]
   "whoreface": ["insult"]
+emoji:
+  "1f595": ["insult"]

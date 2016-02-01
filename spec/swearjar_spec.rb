@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require 'spec_helper'
 
 describe Swearjar do
@@ -54,5 +55,17 @@ describe Swearjar do
 
   it "detects plurals of words ending in 'e'" do
     expect(Swearjar.default.profane?("ejaculates")).to be_truthy
+  end
+
+  it "detects profane emojis" do
+    expect(Swearjar.default.profane?("🖕")).to be_truthy
+  end
+
+  it "detects profane emojis with skin tone" do
+    expect(Swearjar.default.profane?("🖕🏾")).to be_truthy
+  end
+
+  it "censors profane emojis" do
+    expect(Swearjar.default.censor("Fuck you🖕 🖕🖕")).to eq("**** you* **")
   end
 end

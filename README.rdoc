@@ -19,10 +19,9 @@ gem install swearjar
   Swearjar.default.censor('jim henson has a massive hard on he is gonna use to fuck everybody')
   << 'jim henson has a massive **** ** he is gonna use to **** everybody'
 
-To load from a custom yaml file, you can do the following
+To load from a custom yaml file, you can do the following:
 
   sj = Swearjar.new
   sj.load_file('my_yaml.yml')
 
-The YAML file can have two sections, `simple` and `regex`. For an example, see `lib/config/en.yml`.
-
+For an example, see `lib/config/en.yml`.
