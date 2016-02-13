@@ -44,8 +44,7 @@ describe Swearjar do
   end
 
   it "should allow you to load a new yaml file" do
-    sj = Swearjar.new
-    sj.load_file(File.expand_path('../data/swear.yml', __FILE__))
+    sj = Swearjar.new(File.expand_path('../data/swear.yml', __FILE__))
     expect(sj.censor("Python is the best language!")).to eq("****** is the best language!")
   end
 
