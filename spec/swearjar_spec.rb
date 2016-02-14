@@ -67,4 +67,12 @@ describe Swearjar do
   it "censors profane emojis" do
     expect(Swearjar.default.censor("Fuck you🖕 🖕🖕")).to eq("**** you* **")
   end
+
+  it "censors with regular expression matching" do
+    expect(Swearjar.default.censor("foonIgg3rbar foo nigger")).to eq("************ foo ******")
+  end
+
+  it "detects scorecard with regular expression matching" do
+    expect(Swearjar.default.scorecard("foonIgg3rbar foo nigger")).to eq({"discriminatory" => 2})
+  end
 end
