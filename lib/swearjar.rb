@@ -27,13 +27,23 @@ class Swearjar
   def scorecard(string)
     string = string.to_s
     scorecard = {}
-    scan(string) {|word, test| test.each { |type| scorecard.key?(type) ? scorecard[type] += 1 : scorecard[type] = 1} if test}
+    scan(string) do |word, test|
+      next unless test
+      test.each do |type|
+        scorecard[type] = 0 unless scorecard.key?(type)
+        scorecard[type] += 1
+      end
+    end
     scorecard
   end
 
   def censor(string)
     censored_string = string.to_s.dup
-    scan(string) {|word, test| censored_string.gsub!(word, block_given? ? yield(word) : word.gsub(/\S/, '*')) if test}
+    scan(string) do |word, test|
+      next unless test
+      replacement = block_given? ? yield(word) : word.gsub(/\S/, '*')
+      censored_string.gsub!(word, replacement)
+    end
     censored_string
   end
 
