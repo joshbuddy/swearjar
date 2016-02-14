@@ -73,6 +73,10 @@ describe Swearjar do
     expect(Swearjar.default.censor("foonIgg3rbar foo nigger")).to eq("************ foo ******")
   end
 
+  it "censors with a mix of normal and regular expression matches" do
+    expect(Swearjar.default.censor("fagfaggot faggotfag")).to eq("********* *********")
+  end
+
   it "detects scorecard with regular expression matching" do
     expect(Swearjar.default.scorecard("foonIgg3rbar foo nigger")).to eq({"discriminatory" => 2})
   end

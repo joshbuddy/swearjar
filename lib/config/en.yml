@@ -8,6 +8,7 @@ regex:
   '\w*b[i1]tch\w*': ["insult"]
   '\w*ejaculat\w*': ["sexual"]
   '\w*damn\w*': ["inappropriate", "blasphemy"]
+  '\w*f[a4]gg[o0]t\w*': ["discriminatory"]
 simple:
   "anus": ["sexual"]
   "arse": ["insult"]
@@ -146,8 +147,6 @@ simple:
   "fagbag": ["discriminatory"]
   "fagging": ["discriminatory"]
   "faggit": ["discriminatory"]
-  "faggot": ["discriminatory"]
-  "faggotcock": ["discriminatory"]
   "fagg": ["discriminatory"]
   "fagot": ["discriminatory"]
   "fagtard": ["discriminatory"]
