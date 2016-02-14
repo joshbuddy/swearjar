@@ -9,6 +9,7 @@ regex:
   '\w*ejaculat\w*': ["sexual"]
   '\w*damn\w*': ["inappropriate", "blasphemy"]
   '\w*f[a4]gg[o0]t\w*': ["discriminatory"]
+  '\w*wh[o0]r[e3]\w*': ["insult"]
 simple:
   "anus": ["sexual"]
   "arse": ["insult"]
@@ -328,8 +329,5 @@ simple:
   "vjayjay": ["sexual"]
   "wank": ["sexual"]
   "wetback": ["discriminatory"]
-  "whore": ["insult"]
-  "whorebag": ["insult"]
-  "whoreface": ["insult"]
 emoji:
   "1f595": ["insult"]
