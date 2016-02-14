@@ -10,6 +10,7 @@ regex:
   '\w*damn\w*': ["inappropriate", "blasphemy"]
   '\w*f[a4]gg[o0]t\w*': ["discriminatory"]
   '\w*wh[o0]r[e3]\w*': ["insult"]
+  '\w*p[e3]n[i1]s\w*': ["sexual"]
 simple:
   "anus": ["sexual"]
   "arse": ["insult"]
@@ -229,8 +230,6 @@ simple:
   "panooch": ["sexual"]
   "pecker": ["sexual"]
   "peckerhead": ["insult"]
-  "penis": ["sexual"]
-  "penispuffer": ["discriminatory"]
   "phonesex": ["sexual"]
   "phuk": ["sexual"]
   "phuked": ["sexual"]
