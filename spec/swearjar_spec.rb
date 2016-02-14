@@ -3,11 +3,11 @@ require 'spec_helper'
 
 describe Swearjar do
   it "should detect dirty words" do
-    expect(Swearjar.default.profane?('fuck you jim henson')).to be_truthy
+    expect(Swearjar.default.profane?('damn you jim henson')).to be_truthy
   end
 
   it "should detect dirty words regardless of case" do
-    expect(Swearjar.default.profane?('FuCk you jim henson')).to be_truthy
+    expect(Swearjar.default.profane?('DaMn you jim henson')).to be_truthy
   end
 
   it "should not detect non-dirty words" do
@@ -15,7 +15,7 @@ describe Swearjar do
   end
 
   it "should give us a scorecard" do
-    expect(Swearjar.default.scorecard('fuck you jim henson')).to eq({'sexual'=>1})
+    expect(Swearjar.default.scorecard('damn you jim henson')).to eq({'inappropriate'=>1})
   end
 
   it "should detect multiword" do
