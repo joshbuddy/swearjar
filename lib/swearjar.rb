@@ -1,5 +1,4 @@
 require 'yaml'
-require 'fuzzy_hash'
 
 class Swearjar
   def self.default
@@ -10,11 +9,9 @@ class Swearjar
     new(File.join(File.dirname(__FILE__), 'config', "#{language}.yml"))
   end
 
-  attr_reader :tester, :hash
-
   def initialize(file = nil)
-    @tester = FuzzyHash.new
     @hash = {}
+    @regexs = {}
     load_file(file) if file
   end
 
@@ -53,7 +50,7 @@ class Swearjar
     data = YAML.load_file(file)
 
     data['regex'].each do |pattern, type|
-      @tester[Regexp.new(pattern)] = type
+      @regexs[Regexp.new(pattern, "i")] = type
     end if data['regex']
 
     data['simple'].each do |test, type|
@@ -74,17 +71,19 @@ class Swearjar
   def scan(string, &block)
     string.scan(WORD_REGEX) do |word|
       block.call(word,
-        hash[word.downcase] ||
-        hash[word.downcase.gsub(/s\z/,'')] ||
-        hash[word.downcase.gsub(/es\z/,'')])
+        @hash[word.downcase] ||
+        @hash[word.downcase.gsub(/s\z/,'')] ||
+        @hash[word.downcase.gsub(/es\z/,'')])
     end
 
     string.scan(EMOJI_REGEX) do |emoji_char|
-      block.call(emoji_char, hash[emoji_char])
+      block.call(emoji_char, @hash[emoji_char])
     end
 
-    if match = tester.match_with_result(string)
-      block.call(match.last, match.first)
+    @regexs.each do |regex, type|
+      string.scan(regex) do |word|
+        block.call(word, type)
+      end
     end
   end
 end
