@@ -80,4 +80,8 @@ describe Swearjar do
   it "detects scorecard with regular expression matching" do
     expect(Swearjar.default.scorecard("foonIgg3rbar foo nigger")).to eq({"discriminatory" => 2})
   end
+
+  xit "doesn't substitute simple words when they occur later as substrings" do
+    expect(Swearjar.default.censor("anus janus")).to eq("**** janus")
+  end
 end
