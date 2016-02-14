@@ -17,14 +17,14 @@ class Swearjar
 
   def profane?(string)
     string = string.to_s
-    scan(string) {|word, test| return true if !test.nil?}
-    return false
+    scan(string) {|_word, test| return true if test }
+    false
   end
 
   def scorecard(string)
     string = string.to_s
     scorecard = {}
-    scan(string) do |word, test|
+    scan(string) do |_word, test|
       next unless test
       test.each do |type|
         scorecard[type] = 0 unless scorecard.key?(type)
