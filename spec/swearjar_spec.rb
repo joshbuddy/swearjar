@@ -3,19 +3,19 @@ require 'spec_helper'
 
 describe Swearjar do
   it "should detect dirty words" do
-    expect(Swearjar.default.profane?('damn you jim henson')).to be_truthy
+    expect(Swearjar.default.profane?('jackass chan')).to be_truthy
   end
 
   it "should detect dirty words regardless of case" do
-    expect(Swearjar.default.profane?('DaMn you jim henson')).to be_truthy
+    expect(Swearjar.default.profane?('JACKASS CHAN')).to be_truthy
   end
 
   it "should not detect non-dirty words" do
-    expect(Swearjar.default.profane?('i love you jim henson')).to be_falsey
+    expect(Swearjar.default.profane?('I love Jackie Chan movies')).to be_falsey
   end
 
   it "should give us a scorecard" do
-    expect(Swearjar.default.scorecard('damn you jim henson')).to eq({'inappropriate'=>1})
+    expect(Swearjar.default.scorecard('honky jim henson')).to eq({'discriminatory'=>1})
   end
 
   it "should detect multiword" do
@@ -50,6 +50,7 @@ describe Swearjar do
 
   it "detects multiple entries" do
     expect(Swearjar.default.scorecard("cunts cunts cunts")).to eq({"insult" => 3, "sexual" => 3})
+    expect(Swearjar.default.scorecard("damn damnit dammit")).to eq({"inappropriate" => 3, "blasphemy" => 3})
   end
 
   it "detects plurals of words ending in 'e'" do
