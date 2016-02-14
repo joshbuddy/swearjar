@@ -53,7 +53,7 @@ describe Swearjar do
   end
 
   it "detects plurals of words ending in 'e'" do
-    expect(Swearjar.default.profane?("ejaculates")).to be_truthy
+    expect(Swearjar.default.profane?("asspirates")).to be_truthy
   end
 
   it "detects profane emojis" do

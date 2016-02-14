@@ -6,6 +6,7 @@ regex:
   '\w*n[i1]gg[e3]r\w*': ["discriminatory"]
   '\w*fuck\w*': ["sexual"]
   '\w*b[i1]tch\w*': ["insult"]
+  '\w*ejaculat\w*': ["sexual"]
 simple:
   "anus": ["sexual"]
   "arse": ["insult"]
@@ -140,10 +141,6 @@ simple:
   "dumbshit": ["insult"]
   "dumshit": ["insult"]
   "dyke": ["discriminatory"]
-  "ejaculate": ["sexual"]
-  "ejaculated": ["sexual"]
-  "ejaculating": ["sexual"]
-  "ejaculation": ["sexual"]
   "fag": ["discriminatory"]
   "fagbag": ["discriminatory"]
   "fagging": ["discriminatory"]
