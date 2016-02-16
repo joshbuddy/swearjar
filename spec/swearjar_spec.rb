@@ -81,7 +81,11 @@ describe Swearjar do
     expect(Swearjar.default.scorecard("foonIgg3rbar foo nigger")).to eq({"discriminatory" => 2})
   end
 
-  xit "doesn't substitute simple words when they occur later as substrings" do
+  it "substitutes multiple occurrences of a word" do
+    expect(Swearjar.default.censor("anus anus anuses")).to eq("**** **** ******")
+  end
+
+  it "doesn't substitute simple words when they occur later as substrings" do
     expect(Swearjar.default.censor("anus janus")).to eq("**** janus")
   end
 end

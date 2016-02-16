@@ -17,14 +17,14 @@ class Swearjar
 
   def profane?(string)
     string = string.to_s
-    scan(string) {|_word, test| return true if test }
+    scan(string) {|test| return true if test }
     false
   end
 
   def scorecard(string)
     string = string.to_s
     scorecard = {}
-    scan(string) do |_word, test|
+    scan(string) do |test|
       next unless test
       test.each do |type|
         scorecard[type] = 0 unless scorecard.key?(type)
@@ -36,10 +36,10 @@ class Swearjar
 
   def censor(string)
     censored_string = string.to_s.dup
-    scan(string) do |word, test|
+    scan(string) do |test, word, position|
       next unless test
       replacement = block_given? ? yield(word) : word.gsub(/\S/, '*')
-      censored_string.gsub!(word, replacement)
+      censored_string[position, word.size] = replacement
     end
     censored_string
   end
@@ -70,19 +70,22 @@ class Swearjar
 
   def scan(string, &block)
     string.scan(WORD_REGEX) do |word|
-      block.call(word,
-        @hash[word.downcase] ||
-        @hash[word.downcase.gsub(/s\z/,'')] ||
-        @hash[word.downcase.gsub(/es\z/,'')])
+      position = Regexp.last_match.offset(0)[0]
+      test = @hash[word.downcase] ||
+        @hash[word.downcase.sub(/s\z/,'')] ||
+        @hash[word.downcase.sub(/es\z/,'')]
+      block.call(test, word, position)
     end
 
     string.scan(EMOJI_REGEX) do |emoji_char|
-      block.call(emoji_char, @hash[emoji_char])
+      position = Regexp.last_match.offset(0)[0]
+      block.call(@hash[emoji_char], emoji_char, position)
     end
 
     @regexs.each do |regex, type|
       string.scan(regex) do |word|
-        block.call(word, type)
+        position = Regexp.last_match.offset(0)[0]
+        block.call(type, word, position)
       end
     end
   end
