@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
   s.summary = "Put another nickel in the swearjar. Simple profanity detection with content analysis"
   s.description = "#{s.summary}."
   s.email = %q{joshbuddy@gmail.com}
+  s.licenses = ['MIT']
   s.extra_rdoc_files = ['README.md']
   s.files = `git ls-files`.split("\n")
   s.homepage = %q{http://github.com/joshbuddy/swearjar}
