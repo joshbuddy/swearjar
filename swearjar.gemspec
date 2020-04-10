@@ -18,7 +18,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
   s.test_files = `git ls-files`.split("\n").select{|f| f =~ /^spec/}
-  s.rubyforge_project = 'swearjar'
 
   # dependencies
   s.add_development_dependency 'rake',    '~> 10.5'
