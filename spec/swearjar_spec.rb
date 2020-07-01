@@ -93,4 +93,8 @@ describe Swearjar do
     expect(Swearjar.default.censor("nut sack nutsac nut  sac ")).to eq("*** **** ****** ***  *** ")
     expect(Swearjar.default.censor("junglebunnies jungle bunnyabc")).to eq("************* ****** ********")
   end
+
+  it "allows a custom censor mask" do
+    expect(Swearjar.default.censor("a fucked to hell nut sack", "X")).to eq("a XXXXXX to XXXX XXX XXXX")
+  end
 end

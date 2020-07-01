@@ -23,6 +23,13 @@ sj.censor("jim henson has a massive hard on he is gonna use to fuck everybody")
 # => "jim henson has a massive **** ** he is gonna use to **** everybody"
 ```
 
+The censor mask `*` can be overridden:
+
+```ruby
+sj.censor("damn", "X")
+# => "XXXX"
+```
+
 To load from a custom config file, you can do the following:
 
 ```ruby
