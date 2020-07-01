@@ -88,4 +88,9 @@ describe Swearjar do
   it "doesn't substitute simple words when they occur later as substrings" do
     expect(Swearjar.default.censor("anus janus")).to eq("**** janus")
   end
+
+  it "detects profane phrases with spaces" do
+    expect(Swearjar.default.censor("nut sack nutsac nut  sac ")).to eq("*** **** ****** ***  *** ")
+    expect(Swearjar.default.censor("junglebunnies jungle bunnyabc")).to eq("************* ****** ********")
+  end
 end
