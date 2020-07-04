@@ -1,6 +1,5 @@
 rvm:
-  - ruby-1.9.3
   - ruby-2.0.0
-  - ruby-2.1
+  - ruby-2.6
   - jruby
 sudo: false
